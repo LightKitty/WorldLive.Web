@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\files\**" />
+    <Compile Remove="wwwroot\screenshots\**" />
+    <Content Remove="wwwroot\files\**" />
+    <Content Remove="wwwroot\screenshots\**" />
+    <EmbeddedResource Remove="wwwroot\files\**" />
+    <EmbeddedResource Remove="wwwroot\screenshots\**" />
+    <None Remove="wwwroot\files\**" />
+    <None Remove="wwwroot\screenshots\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="YoutubeExplode" Version="5.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WorldLive.Core\WorldLive.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="YoutubeDownloader.Core">
+      <HintPath>..\..\YoutubeDownloader\YoutubeDownloader.Core\bin\Release\netcoreapp2.1\YoutubeDownloader.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

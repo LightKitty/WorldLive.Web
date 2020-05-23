@@ -1,0 +1,18 @@
+﻿@model YoutubeDownloader.Web.Models.IndexModel
+@{ 
+    Layout= "~/Views/_LayoutDownloader.cshtml";
+}
+
+<div style="width:100%; text-align:center;">
+    <h1>
+        Index
+    </h1>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <label>Url :</label>
+        @Html.TextBoxFor(x => x.Url, new { style = "width:300px;" })
+        <a> </a>
+        <input type="submit" value="OK">
+    }
+</div>

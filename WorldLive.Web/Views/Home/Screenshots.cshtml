@@ -1,0 +1,37 @@
+﻿@model WorldLive.Web.Models.Home.ScreenshotsModel
+@{
+    ViewData["Title"] = Model.FolderName;
+}
+
+<script src="https://libs.baidu.com/jquery/1.7.0/jquery.min.js"></script>
+<script src="~/js/jquery.lazyload.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        $("img.lazy").lazyload({ effect: "fadeIn", threshold: 180 }); //延迟加载
+    });
+</script>
+
+<div style="width:100%; text-align:center;">
+    <p><a href="~/home/index" style="padding: 20px; text-decoration: none;">首页</a><p />
+    <hr />
+    @foreach (var screenshotName in Model.ScreenshotNames)
+    {
+        <p><a href='~/screenshots/@Model.FolderName/@screenshotName'><img class='lazy' data-original='/Home/Screenshot?folder=@Model.FolderName&name=@screenshotName&scaleType=1' width='640' height='360' /><br />@screenshotName</a></p><br />
+    }
+    <p>
+        @if (Model.LastPage > 0)
+        {
+            <a>&nbsp;</a>
+            <a href='~/home/screenshots?folder=@Model.FolderName&page=@Model.LastPage'>上一页</a>
+            <a>&nbsp;</a>
+        }
+        @if (Model.NextPage > 0)
+        {
+            <a>&nbsp;</a>
+            <a href='~/home/screenshots?folder=@Model.FolderName&page=@Model.NextPage'>下一页</a>
+            <a>&nbsp;</a>
+        }
+    </p>
+    <hr />
+    <p><a style="text-decoration: none;" href="javascript:scroll(0,0)">返回顶部</a></p>
+</div>
