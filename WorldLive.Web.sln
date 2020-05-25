@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldLive.Web", "WorldLive.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldLive.Core", "WorldLive.Core\WorldLive.Core.csproj", "{449CB4A4-19A6-44A6-9E27-AB4349D515F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldLive.Test", "WorldLive.Test\WorldLive.Test.csproj", "{B12D753C-2EFF-4301-936F-6A726AF9CDE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldLive.Tests", "WorldLive.Tests\WorldLive.Tests.csproj", "{B12D753C-2EFF-4301-936F-6A726AF9CDE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

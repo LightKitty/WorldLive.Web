@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WorldLive.Core.Helpers;
 
-namespace WorldLive.Test
+namespace WorldLive.Tests
 {
     [TestClass]
     public class ImageHelperTest
