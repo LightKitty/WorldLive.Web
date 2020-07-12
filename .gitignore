@@ -3,6 +3,7 @@
 
 files/
 screenshots/
+.vscode/
 
 # User-specific files
 *.suo

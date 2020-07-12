@@ -12,7 +12,7 @@ namespace WorldLive.Core.Consts
 #if DEBUG
             "http://*:5000";
 #else
-            "http://*";
+            "http://*:5000"; // "http://*";
 #endif
         public static string WebRootPath { get; private set; }
 
