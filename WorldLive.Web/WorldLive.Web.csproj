@@ -6,14 +6,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Downloader\**" />
+    <Compile Remove="Views\Downloader\**" />
     <Compile Remove="wwwroot\files\**" />
     <Compile Remove="wwwroot\screenshots\**" />
+    <Content Remove="Models\Downloader\**" />
+    <Content Remove="Views\Downloader\**" />
     <Content Remove="wwwroot\files\**" />
     <Content Remove="wwwroot\screenshots\**" />
+    <EmbeddedResource Remove="Models\Downloader\**" />
+    <EmbeddedResource Remove="Views\Downloader\**" />
     <EmbeddedResource Remove="wwwroot\files\**" />
     <EmbeddedResource Remove="wwwroot\screenshots\**" />
+    <None Remove="Models\Downloader\**" />
+    <None Remove="Views\Downloader\**" />
     <None Remove="wwwroot\files\**" />
     <None Remove="wwwroot\screenshots\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\DownloaderController.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,17 +35,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="YoutubeExplode" Version="5.1.8" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\WorldLive.Core\WorldLive.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="YoutubeDownloader.Core">
-      <HintPath>..\..\YoutubeDownloader\YoutubeDownloader.Core\bin\Release\netcoreapp2.1\YoutubeDownloader.Core.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
