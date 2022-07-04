@@ -41,4 +41,10 @@
     <ProjectReference Include="..\WorldLive.Core\WorldLive.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Home\History.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

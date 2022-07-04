@@ -14,5 +14,6 @@ namespace WorldLive.Web.Models.Home
         public int NextPage { get; set; }
         public int MaxPage { get; set; }
         public int CurrentPage { get; set; }
+        public DateTime Date { get; set; }
     }
 }

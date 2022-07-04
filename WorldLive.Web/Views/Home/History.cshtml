@@ -1,0 +1,25 @@
+﻿@model  WorldLive.Web.Models.Home.HistoryModel
+@{
+    ViewData["Title"] = "选择日期";
+}
+<style>
+    h1 {
+        padding: 10px;
+        text-decoration: none;
+        font-family: 'Microsoft YaHei';
+    }
+
+    a {
+        padding: 10px;
+        font-size: 24px;
+        text-decoration: none;
+        font-family: 'Microsoft YaHei';
+    }
+</style>
+<div style="width:100%; text-align:center;">
+    <h1>选择日期查看截图</h1>
+    @for (int i = 0; i < Model.Folders.Length; i++)
+    {
+        <p><a href='/Home/Screenshots?folder=@Model.Folders[i].Name'>@Model.Folders[i].Name.Insert(8, "日").Insert(6, "月").Insert(4, "年")</a></p>
+    }
+</div>

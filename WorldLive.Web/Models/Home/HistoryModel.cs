@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorldLive.Web.Models.Home
 {
-    public class IndexModel
+    public class HistoryModel
     {
         public DirectoryInfo[] Folders { get; set; }
     }

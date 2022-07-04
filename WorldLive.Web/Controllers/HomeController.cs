@@ -20,7 +20,15 @@ namespace WorldLive.Web.Controllers
             DirectoryInfo root = new DirectoryInfo(CommonConst.ScreenshotsPath);
             DirectoryInfo[] dics = root.GetDirectories();
             IOHelper.SortAsFolderName(dics, false); //排序
-            IndexModel homeModel = new IndexModel
+            return RedirectToAction(nameof(Screenshots), new { folder = dics.First().Name, page = 1 });
+        }
+
+        public IActionResult History()
+        {
+            DirectoryInfo root = new DirectoryInfo(CommonConst.ScreenshotsPath);
+            DirectoryInfo[] dics = root.GetDirectories();
+            IOHelper.SortAsFolderName(dics, false); //排序
+            HistoryModel homeModel = new HistoryModel
             {
                 Folders = dics
             };
@@ -33,7 +41,7 @@ namespace WorldLive.Web.Controllers
             string folderPath = CommonConst.ScreenshotsPath + "/" + folder;
             if (!Directory.Exists(folderPath))
             {//不存在
-                return Index();
+                return RedirectToAction(nameof(History));
             }
 
             DirectoryInfo root = new DirectoryInfo(folderPath);
@@ -60,7 +68,8 @@ namespace WorldLive.Web.Controllers
                 FolderName = folder,
                 ScreenshotNames = screenshotNames,
                 MaxPage = maxPage,
-                CurrentPage = page
+                CurrentPage = page,
+                Date = Convert.ToDateTime(folder.Insert(6, "-").Insert(4, "-"))
             };
 
             if (page > 1)
