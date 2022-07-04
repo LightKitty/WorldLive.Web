@@ -20,7 +20,7 @@ namespace WorldLive.Core.Consts
 
         public static string ScreenshotsPath { get { return WebRootPath + "/" + ScreenshotsFolder; } }
 
-        public static int ScreenshotsPageSize = 10;
+        public static int ScreenshotsPageSize = 20;
 
         private const string FilesFolder = "files";
 

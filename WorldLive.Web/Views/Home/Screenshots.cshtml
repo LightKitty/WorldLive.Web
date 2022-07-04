@@ -25,6 +25,19 @@
             <a href='~/home/screenshots?folder=@Model.FolderName&page=@Model.LastPage'>上一页</a>
             <a>&nbsp;</a>
         }
+		@for(int i = 1; i <= Model.MaxPage; i++)
+		{
+			<a>&nbsp;</a>
+			@if(i == Model.CurrentPage)
+			{
+				<a>@i</a>
+			}
+			else
+			{
+				<a href='~/home/screenshots?folder=@Model.FolderName&page=@i'>@i</a>
+			}
+            <a>&nbsp;</a>
+		}
         @if (Model.NextPage > 0)
         {
             <a>&nbsp;</a>

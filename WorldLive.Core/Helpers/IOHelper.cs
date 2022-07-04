@@ -21,10 +21,10 @@ namespace WorldLive.Core.Helpers
         /// C#按文件夹名称排序（顺序）
         /// </summary>
         /// <param name="directoryInfos">待排序文件夹数组</param>
-        /// <param name="order">正序？</param>
-        public static void SortAsFolderName(DirectoryInfo[] directoryInfos, bool order = true)
+        /// <param name="asc">正序？</param>
+        public static void SortAsFolderName(DirectoryInfo[] directoryInfos, bool asc = true)
         {
-            Array.Sort(directoryInfos, delegate (DirectoryInfo x, DirectoryInfo y) { return order ? x.Name.CompareTo(y.Name) : y.Name.CompareTo(x.Name); });
+            Array.Sort(directoryInfos, delegate (DirectoryInfo x, DirectoryInfo y) { return asc ? x.Name.CompareTo(y.Name) : y.Name.CompareTo(x.Name); });
         }
     }
 }

@@ -58,7 +58,9 @@ namespace WorldLive.Web.Controllers
             ScreenshotsModel screenshotsModel = new ScreenshotsModel
             {
                 FolderName = folder,
-                ScreenshotNames = screenshotNames
+                ScreenshotNames = screenshotNames,
+                MaxPage = maxPage,
+                CurrentPage = page
             };
 
             if (page > 1)
