@@ -29,6 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\_LayoutDownloader.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
