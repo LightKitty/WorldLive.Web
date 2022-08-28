@@ -45,7 +45,7 @@ namespace WorldLive.Web.Controllers
             }
 
             DirectoryInfo root = new DirectoryInfo(folderPath);
-            FileInfo[] files = root.GetFiles();
+            FileInfo[] files = root.GetFiles("*.jpg");
             IOHelper.SortAsFileName(files); //排序
 
             int maxPage = Convert.ToInt32(Math.Ceiling((double)files.Length / CommonConst.ScreenshotsPageSize));
