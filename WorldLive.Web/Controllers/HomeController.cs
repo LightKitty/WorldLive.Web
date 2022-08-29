@@ -17,10 +17,7 @@ namespace WorldLive.Web.Controllers
     {
         public IActionResult Index()
         {
-            DirectoryInfo root = new DirectoryInfo(CommonConst.ScreenshotsPath);
-            DirectoryInfo[] dics = root.GetDirectories();
-            IOHelper.SortAsFolderName(dics, false); //排序
-            return RedirectToAction(nameof(Screenshots), new { folder = dics.First().Name, page = 1 });
+            return RedirectToAction(nameof(Screenshots));
         }
 
         public IActionResult History()
@@ -36,8 +33,15 @@ namespace WorldLive.Web.Controllers
             return View(homeModel);
         }
 
-        public IActionResult Screenshots(string folder, int page)
+        public IActionResult Screenshots(string folder = null, int page = 1)
         {
+            if(string.IsNullOrEmpty(folder))
+            {
+                DirectoryInfo _root = new DirectoryInfo(CommonConst.ScreenshotsPath);
+                DirectoryInfo[] dics = _root.GetDirectories();
+                IOHelper.SortAsFolderName(dics, false); //排序
+                folder = dics.First().Name;
+            }
             string folderPath = CommonConst.ScreenshotsPath + "/" + folder;
             if (!Directory.Exists(folderPath))
             {//不存在
