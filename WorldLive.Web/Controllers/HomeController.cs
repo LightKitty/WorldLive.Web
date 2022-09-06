@@ -89,6 +89,7 @@ namespace WorldLive.Web.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 600)]
         public IActionResult Screenshot(string folder, string name, ImageHelper.ScaleType scaleType)
         {
             string path = CommonConst.WebRootPath + "/" + "screenshots" + "/" + folder + "/" + name;
