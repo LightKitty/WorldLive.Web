@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WorldLive.Core.Consts;
 using WorldLive.Core.Helpers;
@@ -97,6 +98,31 @@ namespace WorldLive.Web.Controllers
             string contentType;
             ImageHelper.Zoom(path, scaleType, out bytes, out contentType);
             return new FileContentResult(bytes, contentType);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ScreenshotUpload(string folder, List<IFormFile> files)
+        {
+            long size = files.Sum(f => f.Length);
+            string folderPath = CommonConst.WebRootPath + "/" + "screenshots" + "/" + folder + "/";
+            if(!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            foreach (var formFile in files)
+            {
+                if (formFile.Length > 0)
+                {
+                    string filePath = folderPath + formFile.FileName;
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(stream);
+                    }
+                }
+            }
+
+            return Ok(new { count = files.Count, size });
         }
     }
 }
