@@ -32,7 +32,7 @@ namespace WorldLive.Web
             app.UseStaticFiles();
             app.UseMvc((RouteBuilder) =>
             {
-                RouteBuilder.MapRoute("Default", "{Controller}/{Action}/{Parameter}", new { @Controller = "Home", @Action = "Screenshots", @Parameter = string.Empty });
+                RouteBuilder.MapRoute("Default", "{Controller}/{Action}/{Parameter}", new { @Controller = "Home", @Action = "History", @Parameter = string.Empty });
             });
 
             CommonConst.WebInit(env.WebRootPath);
