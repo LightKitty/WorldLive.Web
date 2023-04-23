@@ -100,14 +100,19 @@ namespace WorldLive.Web.Controllers
             return new FileContentResult(bytes, contentType);
         }
 
+        private readonly object screenshotUploadLock = new object();
         [HttpPost]
         public async Task<IActionResult> ScreenshotUpload(string folder, List<IFormFile> files)
         {
             long size = files.Sum(f => f.Length);
             string folderPath = CommonConst.WebRootPath + "/" + "screenshots" + "/" + folder + "/";
-            if(!Directory.Exists(folderPath))
+
+            lock(screenshotUploadLock)
             {
-                Directory.CreateDirectory(folderPath);
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
             }
 
             foreach (var formFile in files)
